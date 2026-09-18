@@ -1,0 +1,132 @@
+/* Subheading style for About page sections */
+h2 {
+    font-size: 24px; /* size of the subheadings */
+    font-weight: normal; /* regular weight */
+    text-align: left; /* center the subtitle text */
+  }
+  
+  /* Paragraph default size for readability */
+  p {
+    font-size: 18px;
+  }
+  
+  /* Styling for any direct child div inside main (general content boxes) */
+  main > div {
+    background-color: #E3DFDE; /* pale background for content cards */
+    border-radius: 10px; /* rounded corners */
+    font-size: 30px; /* large text inside these boxes */
+    padding: 10px; /* inner spacing */
+    text-align: left; /* align text to the left */
+  }
+  
+  /* Links inside main > div use a highlight color */
+  main > div > a {
+    color: #ff5100; /* orange link color */
+    font-size: 18px; /* readable link size */
+  }
+  
+  /* Hover state for those links to show interactivity */
+  main > div > a:hover {
+    background-color: #4B3C35; /* dark background on hover */
+    color: #E3DFDE; /* light text to contrast */
+  }
+  
+  /* Focus state for keyboard accessibility (same as hover) */
+  main > div > a:focus {
+    background-color: #4B3C35;
+    color: #E3DFDE;
+    outline: none; /* remove default outline for aesthetic */
+  }
+  
+  /* Container 1 specific styles */
+  #container1 {
+    background-color: #fafafa; /* light background */
+    color: #2d2d2d; /* dark text color */
+    grid-area: area1; /* position in the grid layout */
+    text-align: justify; /* even edge alignment */
+  }
+  
+  /* Container 2 specific styles (similar to container1) */
+  #container2 {
+    grid-area: area2;
+    background-color: #fafafa;
+    color: #2d2d2d;
+    text-align: justify;
+  }
+  
+  /* Container 3 specific styles */
+  #container3 {
+    grid-area: area3;
+    background-color: #fafafa;
+    color: #2d2d2d;
+    text-align: left;
+  }
+  
+  /* Container 4 is used for the figure (image + caption) */
+  #container4 {
+    grid-area: area4;
+    background-color: #fafafa;
+    color: #2d2d2d;
+    text-align: center; /* center image caption */
+    display: flex; /* use flexbox to center content */
+    flex-direction: column; /* stack image and caption vertically */
+    align-items: center; /* center horizontally */
+    justify-content: center; /* center vertically */
+  }
+  
+  /* Make images responsive inside container4 */
+  #container4 img {
+    max-width: 100%; /* never exceed container width */
+    height: auto; /* keep original aspect ratio */
+    border-radius: 8px; /* slightly rounded corners */
+    margin-bottom: 10px; /* space between image and caption */
+  }
+  
+  /* Paragraphs specifically inside container4 (if used) */
+  #container4 p {
+    font-size: 24px; /* larger text for emphasis */
+    font-weight: bold; /* make it stand out */
+    margin: 10px 0; /* vertical spacing */
+  }
+  
+  /* Main grid layout for stacking content on small screens */
+  main {
+    display: grid; /* use CSS grid for layout */
+    grid-template-areas:
+      'area1'
+      'area2'
+      'area3'
+      'area4'; /* stack areas vertically */
+    grid-template-columns: auto; /* single column */
+    grid-template-rows: auto; /* rows sized to content */
+    grid-gap: 20px; /* space between grid items */
+    padding: 20px; /* inner spacing for the grid */
+  }
+  
+  /* On larger screens, change grid to two columns */
+  @media only screen and (min-width: 992px) {
+    main {
+      grid-template-areas:
+        'area1 area2'
+        'area3 area4'; /* two columns layout */
+    }
+  }
+  
+  /* Footer styling (matches site header) */
+  footer {
+    background-color: #434a53;
+    color: #ffffff;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  /* Caption text size for figures */
+  figcaption {
+    font-size: 15px;
+  }
+  

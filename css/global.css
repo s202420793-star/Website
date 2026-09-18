@@ -1,0 +1,294 @@
+/* Select every element and reset common browser spacing */
+* {
+    /* Remove default margin on all elements */
+    margin: 0;
+    /* Remove default padding on all elements */
+    padding: 0;
+    /* Make sizing include borders and padding for predictable layouts */
+    box-sizing: border-box;
+  }
+  
+  fieldset {
+    border: none;
+  }
+  
+  /* Styles for the page background and default text appearance */
+  body {
+    /* Set the default font stack for the site */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Space between lines of text */
+    line-height: 1.6;
+    /* Default text color */
+    color: #2d2d2d;
+    /* Page background color */
+    background-color: #dee3e2;
+    /* Ensure body at least fills the screen height */
+    min-height: 100vh;
+    /* Use flex layout so header/footer can align vertically */
+    display: flex;
+    /* Stack children vertically */
+    flex-direction: column;
+    /* Smooth scrolling for anchor links */
+    scroll-behavior: smooth;
+  }
+  
+  /* Header bar at the top of the page */
+  header {
+    /* Dark background for the header */
+    background-color: #434a53;
+    /* White text color inside header */
+    color: #ffffff;
+    /* Space inside the header (top/bottom, left/right) */
+    padding: 16px 32px;
+    /* Keep the header visible at the top while scrolling */
+    position: sticky;
+    top: 0;
+    left: 0;
+    /* Stretch header full width */
+    width: 100%;
+    /* Make sure it sits above other content */
+    z-index: 1000;
+    /* Use flexbox to lay out header children */
+    display: flex;
+    /* Put space between left and right items */
+    justify-content: space-between;
+    /* Align items vertically centered */
+    align-items: center;
+  }
+  
+  /* Footer shown at the bottom of the viewport */
+  footer {
+    background-color: #434a53; /* same dark background as header */
+    color: #ffffff; /* white text for contrast */
+    padding: 16px 32px; /* inner spacing */
+    text-align: center; /* center text inside footer */
+    font-size: 16px; /* readable font size for footer text */
+    width: 100%; /* stretch across the page */
+    position: fixed; /* keep footer always visible at bottom */
+    left: 0; /* align to left edge */
+    bottom: 0; /* stick to bottom of viewport */
+  }
+  
+  /* Main site title style */
+  h1 {
+    /* Use a display-style font for the heading */
+    font-family: orbitron, sans-serif;
+    /* Large font size for prominence */
+    font-size: 32px;
+    /* Make the title bold */
+    font-weight: 700;
+    /* Slightly tighten the letter spacing */
+    letter-spacing: -0.4px;
+    /* Allow the heading to grow and take available space */
+    flex: 1;
+  }
+  
+  /* Hidden checkbox used to toggle the mobile menu */
+  .menu-toggle,
+  .menu-button {
+    display: none; /* Hidden on desktop screens */
+  }
+  
+  .menu-button {
+    align-items: center;
+    gap: 0.45rem;
+    margin-left: auto;
+    background-color: var(--surface-alt);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    padding: 0.45rem 0.7rem;
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  
+  .menu-button img {
+    width: 28px;
+    height: 28px;
+    display: block;
+  }
+  
+  .menu-button:hover,
+  .menu-button:focus {
+    background-color: var(--accent);
+    color: var(--text-dark);
+  }
+  
+  .menu-toggle:focus-visible + .menu-button {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+  }
+  
+  /* Navigation container */
+  nav {
+    display: flex; /* lay out links horizontally */
+    gap: 16px; /* space between links */
+    justify-content: flex-end; /* push links to the right */
+    flex: none; /* do not flex-grow */
+  }
+  
+  /* Styles for each navigation link */
+  nav a {
+    font-size: 20px; /* size of link text */
+    font-weight: 700; /* make links bold */
+    color: #ffffff; /* white link text */
+    text-decoration: none; /* remove underline */
+    padding: 12px 24px; /* clickable area around the link */
+    border-radius: 8px; /* rounded corners for link background */
+    transition: all 0.3s ease; /* smooth hover effects */
+    position: relative; /* for any positioned child elements */
+  }
+  
+  /* Hover effect for navigation links */
+  nav a:hover {
+    background: rgb(255, 0, 0); /* red background on hover */
+    color: lightgray; /* change text color for contrast */
+    transform: none; /* reset any transforms */
+  }
+  
+  /* Style for the currently active navigation link */
+  nav a.active_nav {
+    background: rgba(255, 255, 255, 0.1); /* subtle highlighted background */
+    color: white; /* ensure text is white */
+  }
+  
+  /* Responsive rules for small screens (mobile) */
+  @media only screen and (max-width: 768px) {
+    /* Show the hamburger menu on small screens */
+    #hamburger_menu {
+      display: block;
+    }
+  
+    /* Show the hamburger icon image */
+    #hamburger_icon {
+      display: block;
+    }
+  
+    /* Hide the normal nav and turn it into a dropdown */
+    nav {
+      display: none; /* hidden until the checkbox is checked */
+      flex-direction: column; /* stack links vertically */
+      gap: 16px; /* spacing between links */
+      background-color: #434a53; /* match header background */
+      position: absolute; /* position under the header */
+      top: 100%; /* place it directly below the header */
+      right: 0; /* align to the right edge */
+      width: 200px; /* fixed dropdown width */
+      z-index: 999; /* sit above page content */
+      border-radius: 0 0 8px 8px; /* rounded bottom corners */
+    }
+  
+    /* When the hidden checkbox is checked, show the nav */
+    #hamburger_checkbox:checked ~ nav {
+      display: flex;
+    }
+  
+    /* Make link blocks fill the dropdown width on mobile */
+    nav a {
+      padding: 16px; /* larger clickable area */
+      font-size: 19px; /* slightly smaller than desktop */
+      border-radius: 0; /* square corners inside dropdown */
+      text-align: center; /* center the link text */
+    }
+  }
+  
+  /* Rules for larger screens (desktop and up) */
+  @media only screen and (min-width: 769px) {
+    /* Keep the hamburger menu hidden on large screens */
+    #hamburger_menu {
+      display: none;
+    }
+  
+    /* Ensure the nav is displayed as a horizontal row */
+    nav {
+      display: flex !important; /* override any inline styles */
+      flex-direction: row; /* horizontal layout */
+      gap: 32px; /* more space between links on desktop */
+      position: static; /* normal flow positioning */
+      width: auto; /* width based on its content */
+      background: none; /* remove mobile background */
+    }
+  }
+  @media (max-width: 900px) {
+    /* Tablet: reduce columns from 3/4 to 2 */
+    .card-grid    { grid-template-columns: repeat(2, 1fr); }
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  
+  @media (min-width: 761px) {
+    /* Desktop/tablet: always show the navigation links as normal header links. */
+    .site-header {
+      flex-wrap: nowrap;
+    }
+  
+    .menu-toggle,
+    .menu-button {
+      display: none !important; /* The hamburger controls are only for mobile view. */
+    }
+  
+    .site-header nav {
+      display: flex !important; /* Prevents the nav from staying hidden outside mobile view. */
+      width: auto;
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding-top: 0;
+    }
+  }
+  
+  @media (max-width: 760px) {
+    /* Phone: hide the nav inside the hamburger menu until the button is tapped. */
+    .site-header {
+      position: sticky;   /* Keep the compact mobile header visible while scrolling */
+      flex-direction: row;
+      flex-wrap: wrap;    /* Nav can drop underneath when opened */
+      align-items: center;
+    }
+  
+    .logo {
+      max-width: calc(100% - 120px); /* Leaves room for the menu button */
+    }
+  
+    .menu-toggle {
+      display: block;
+      position: absolute;
+      opacity: 0;         /* Keeps it accessible but visually hidden */
+      width: 1px;
+      height: 1px;
+    }
+  
+    .menu-button {
+      display: flex;      /* Show the icon button only on mobile */
+    }
+  
+    .site-header nav {
+      display: none;      /* Mobile only: menu starts closed behind the hamburger button */
+      width: 100%;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      gap: 0.45rem;
+      padding-top: 0.75rem;
+    }
+  
+    .menu-toggle:checked ~ nav {
+      display: flex;      /* Mobile only: menu opens when the checkbox is checked */
+    }
+  
+    .site-header nav a {
+      width: 100%;
+      flex: none;
+      text-align: left;
+    }
+  
+    .hero,
+    .form-grid,
+    .card-grid,
+    .product-grid {
+      grid-template-columns: 1fr; /* Single column */
+    }
+  
+    h1 { font-size: 1.5rem; } /* Smaller heading on phones */
+  }
+  

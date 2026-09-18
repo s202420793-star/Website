@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact the bricked Troopers crew for LEGO Star Wars enquiries.">
+  <title>bricked Troopers | Hail the Base</title>
+  <link rel="stylesheet" href="css/global.css">   <!-- Shared styles (includes form styles) -->
+  <link rel="stylesheet" href="css/contact.css">  <!-- Contact-page-only styles -->
+</head>
+
+<body>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">
+      <img src="Basically Images/basicallylogo.png" alt="Basically Logo">
+    </a>
+    <!-- MOBILE MENU TOGGLE: shown on mobile only; desktop/tablet keep the normal navigation visible -->
+    <input class="menu-toggle" type="checkbox" id="menu-toggle" aria-label="Toggle navigation menu">
+    <label class="menu-button" for="menu-toggle">
+        <img src="Basically Images/hamburger.png" style="width: 20px;height: 20px;" alt="" aria-hidden="true">
+        <span>Menu</span>
+    </label>
+    <nav aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="products.html">Clothes</a>
+      <a href="checkout.html">Checkout</a>
+      <a class="active" href="contact.html">Contact</a>  <!-- Active = current page -->
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- CONTACT INTRO -->
+    <section>
+      <h1>Contact Us</h1>
+      <p>Genuine questions? Missing Clothing? Order lost? Send a Email.</p>
+      <p class="contact-details">  <!-- Styled by contact.css: monospace font, yellow -->
+        Email: support@basically.example &nbsp;|&nbsp; Phone: 1300 555 789
+        <!  -- &nbsp; = non-breaking space; keeps the | separator from touching the text -->
+      </p>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section>
+      <form action="#" method="post">
+        <!-- action="#" = no server connected; method="post" = data sent in request body -->
+
+        <fieldset>  <!-- Groups related fields with a visible border -->
+          <legend>Open a Line</legend>  <!-- Title shown on fieldset border -->
+
+          <div class="form-grid">  <!-- Two-column grid layout -->
+
+            <div class="field-group">  <!-- Stack label above input -->
+              <label for="contact_name">Your Name</label>  <!-- for= links to input id= -->
+              <input type="text" id="contact_name" name="contact_name"
+                     placeholder="e.g. Bob Buff" required>
+              <!-- type="text" = plain text box; required = can't submit if empty -->
+            </div>
+
+            <div class="field-group">
+              <label for="contact_email">Your Email</label>
+              <input type="email" id="contact_email" name="contact_email"
+                     placeholder="you@Clothing.com" required>
+              <!-- type="email" validates the address format automatically -->
+            </div>
+
+            <div class="field-group full">  <!-- class="full" = span both columns -->
+              <label for="contact_message">Your Message</label>
+              <textarea id="contact_message" name="contact_message"
+                        placeholder="e.g. Do you stock the white t-shirt?" required></textarea>
+              <!-- textarea = multi-line text box; no self-closing tag -->
+            </div>
+
+          </div>
+
+          <div class="actions">  <!-- Flexbox row for buttons -->
+            <button type="submit">Send Email</button>  <!-- Submits the form -->
+            <button type="reset">Cancel</button>         <!-- Clears all fields -->
+          </div>
+
+        </fieldset>
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Basically &mdash; Clothes Enthusiast Store</p>
+    <p>Fan Built Store</p>
+  </footer>
+
+</body>
+</html>
